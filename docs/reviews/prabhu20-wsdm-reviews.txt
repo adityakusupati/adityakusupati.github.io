@@ -1,0 +1,110 @@
+TITLE: Extreme Regression for Dynamic Search Advertising
+AUTHORS: Yashoteja Prabhu, Aditya Kusupati, Nilesh Gupta and Manik Varma
+
+-------------------------  METAREVIEW  ------------------------ 
+Summary of strengths and weaknesses of the paper:
+
+This paper presents a framework for dynamic advertising. The paper should be praised for the detailed experiments. The method itself is in good technical depth and seems to work quite well. 
+
+
+Discussion:
+
+No discussion was done for this paper since the majority of the reviews agree. 
+ 
+Main reasons for the final recommendation of acceptance or rejection:
+
+Technically solid and well written. I recommend accept.
+
+
+
+----------------------- REVIEW 1 ---------------------
+SUBMISSION: 444
+TITLE: Extreme Regression for Dynamic Search Advertising
+AUTHORS: Yashoteja Prabhu, Aditya Kusupati, Nilesh Gupta and Manik Varma
+
+----------- Paper Clarity -----------
+SCORE: 3 (Above Average)
+----------- Interest to Audience -----------
+SCORE: 3 (Medium)
+----------- Paper Significance -----------
+SCORE: 3 (Above Average)
+----------- Strengths -----------
+1. Following the existing work Parabel, this paper proposes a method to address the extreme regression problem. The formulation of the proposed method is clear enough.
+
+2. To evaluate the proposed method, sufficient experimental study is conducted.
+
+3. The proof of beam search error boundary opens a new perspective for tree-based methods.
+----------- Weaknesses -----------
+1. Compared to the previous work Parabel which solves the Extreme classification problem, this work seems to be an incremental work that extends the idea to regression problem. 
+
+2. The description of the proposed label-wise prediction in the paper is not clear enough. And whether the proposed method can work well for applications like recommendation is doubt.
+
+3. The label tree is built with intuitive clustering algorithm, which is hard to be updated dynamically. Besides, for tree-based methods, the quality of tree structure might affect the performance greatly. I wonder that whether there is a way to jointly learn the tree structure and the regression model to achieve better performance.
+----------- Overall Evaluation -----------
+SCORE: 1 (Weak accept)
+----- TEXT:
+This work proposes a method for extreme regression problem using tree structure. Compared to the existing work like Parabel which trains classification models, the proposed work directly train regression models to predict the relevance score. To improve the quality of top ranked results, a regression metric that focus on those most important and top ranked results is proposed as a more meaningful evaluation metric.
+
+By normalizing the relevance score of all the labels and using the tree structure, the authors propose to convert the regression problem to a series of logistic regression problems along the tree path. I suggest that the authors do additional experiments to evaluate how different tree structure affects the final performance.
+
+
+
+----------------------- REVIEW 2 ---------------------
+SUBMISSION: 444
+TITLE: Extreme Regression for Dynamic Search Advertising
+AUTHORS: Yashoteja Prabhu, Aditya Kusupati, Nilesh Gupta and Manik Varma
+
+----------- Paper Clarity -----------
+SCORE: 4 (Excellent (Easy to follow))
+----------- Interest to Audience -----------
+SCORE: 4 (High)
+----------- Paper Significance -----------
+SCORE: 4 (Excellent)
+----------- Strengths -----------
+- several novel contributions (framework, metrics, algorithm, etc)
+- experiments on several public datasets
+- comparisons against the state-of-the-art
+----------- Weaknesses -----------
+- few minor points (see detailed comments)
+----------- Overall Evaluation -----------
+SCORE: 2 (Accept)
+----- TEXT:
+Authors observe that extreme multi-label classification techniques are being increasingly applied to recommendation and ranking problem. However, these approaches implicitly assume that each label is either fully relevant or fully irrelevant. In practice, in the mentioned contexts this is not true. To overcome this limitation authors propose a new learning paradigm, i.e., eXtreme Regression (XR) that allows to choose the most relevant labels by directly predicting the label relevance weights, such as ad click probabilities or movie ratings. Authors also propose new evaluation metrics and a new algorithm called eXtreme Regressor (XReg). Experiments on several public datasets against to state-of-the-art extreme classifiers and other techniques show that eXtreme Regression provides leading performance in the field.
+
+The paper is well-written and well-structured. It provides several novel contributions: i) a new paradigm, i.e,. eXtreme Regression, ii) new metrics for evaluating the performance of these specific techniques, i.e., XMAD and XRMSE, iii) a new algorithm called eXtreme Regressor (XReg) and iv) a new labelwise inference paradigm that is used in Dynamic Search Advertising and other recommendation tasks.
+
+Few minor issues:
+
+*) It is not clear to me why tail classifiers cannot be applied also to extreme classifiers. Please explain. I am asking because the X-Reg-t variant shows very good performance. It would be interesting to know if tail classifiers can help also the classification counterpart.
+
+*) I would avoid "don't" or similar contractions.
+
+
+
+----------------------- REVIEW 3 ---------------------
+SUBMISSION: 444
+TITLE: Extreme Regression for Dynamic Search Advertising
+AUTHORS: Yashoteja Prabhu, Aditya Kusupati, Nilesh Gupta and Manik Varma
+
+----------- Paper Clarity -----------
+SCORE: 3 (Above Average)
+----------- Interest to Audience -----------
+SCORE: 3 (Medium)
+----------- Paper Significance -----------
+SCORE: 3 (Above Average)
+----------- Strengths -----------
+- The paper proposes an extreme regression framework and corresponding metrics for the setting of dynamic search advertising, to learn relevance label for items to queries.
+- The time complexity is in O(polylog L), where L is the number of labels. This is particularly useful in settings where the number of labels is very large.
+- They support the proposed approach with experiments on publicly available datasets and comparing against the state-of-the-art extreme classifiers.
+----------- Weaknesses -----------
+- In dynamic search advertising, when a user query comes in, the goal is to fetch relevant ads, rank them by relevance and run an auction, before presenting them to the user. Although, the value of extreme classification is evident in item-item recommendation and movie recommendations, it is unclear how it would be practically feasible to rank queries (labels) per ad.
+Most queries receive low impressions. Ranking all of many queries for each ad might be unnecessary. Moreover, most queries being infrequent, it might not be possible to cover the space of most queries. If the DSA referred to in the paper follows a different architecture than the one described above, it would be helpful to the reader if the authors would clarify the design of the DSA.
+
+- This paper extends the paper on Parabel, by defining metrics for extreme regression and present an approach similar to Parabel to learn such a framework. Although extreme regression is novel, due to the overlap with the Parabel paper, the contributions are light.
+
+- Given that the motivation of problem is an efficient application for DSA, it is nt clear how the proposed approach addresses problems specific to DSA, as compared to other similar settings (recommendations). For example, one of the challenges of online advertising, is the sparsity of features, data; another challenge is adhering to a strict limit on latency; and a challenge especially in search, is handling the long tail of infrequent queries. How does the proposed approach specifically handle these issues?
+Or perhaps, it may be better to present this work as an approach for a variety of multi-label, large dataset problems.
+----------- Overall Evaluation -----------
+SCORE: -1 (Weak reject)
+----- TEXT:
+The paper presents a novel framework of extreme regression and supports it with experiments. However, as listed above the contributions seem a bit light and there are challenges in applying such an approach to a dynamic search advertising system that are not addressed.

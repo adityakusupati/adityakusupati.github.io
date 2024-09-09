@@ -1,0 +1,102 @@
+BuildSys'19 Paper #339 Reviews and Comments
+===========================================================================
+Paper #339 One Size Does Not Fit All: Multi-Scale, Cascaded RNNs for Radar
+Classification
+
+
+Review #339A
+===========================================================================
+
+Reviewer expertise
+------------------
+3. Knowledgeable
+
+Paper summary
+-------------
+This paper proposes a cascaded approach to edge-classification of radar data. There are key tradeoffs between accuracy and latency, and the authors develop a technique that is both fast and accurate. Extensive experimental results and a deep comparative analysis of alternative techniques is presented.
+
+Strengths
+---------
++ Edge based sensing, pushing deep learning to low power microcontrollers
++ Radar returns are fairly complex, so this in itself is a difficult problem, even on a GPU
++ Detailed investigation of alternatives and motivation of the new approach
+
+Significant Weaknesses
+----------------------
+- Not clear if experimental data included multiple targets concurrently e.g. multiple humans etc
+
+Comments for author
+-------------------
+This is a neat, solid paper that is well written and motivated. The problem is clear: how to get the performance of a deep network (e.g. CNN) without having to 'pay' for it (in terms of FLOPS on an ARM cortex M3). The approach of using cascaded, multi-scale networks is neat and makes sense. Detailed and indepth 'ablation' studies have also been provided.
+
++ M3 cortex really makes things hard - why not an M4F? cost and energy are similar, but having a hardware FPU makes all the difference to number crunching. Some discussion of various architectural considerations would help here.
+
++ Is this technique recommended in general i.e. are there other problems that might share similar characteristics?
+
+Human/animal subject approval
+-----------------------------
+1. Needed but not mentioned in the paper
+
+Overall merit
+-------------
+4. Accept
+
+
+
+Review #339B
+===========================================================================
+
+Reviewer expertise
+------------------
+2. Some familiarity
+
+Paper summary
+-------------
+This paper introduces a concept of MSC (multi-scale, cascaded) RNN for radar sensing and source classification.
+
+Strengths
+---------
+Edge sensing is an emergent topic and worthwhile of exploring. This paper provides a complete MSC-RNN architecture and comparative analytics with existing shallow radar solutions, which are convincing and thought-provoking.
+
+Significant Weaknesses
+----------------------
+It is better that authors could discuss some of potential applications of the proposed MSC-RNN in building and city domains.
+
+Human/animal subject approval
+-----------------------------
+2. Not needed or approval is mentioned in the paper.
+
+Overall merit
+-------------
+3. Weak accept
+
+
+
+Review #339C
+===========================================================================
+
+Reviewer expertise
+------------------
+1. No familiarity
+
+Paper summary
+-------------
+The study proposed a multi-scale RNNs for multi-source radar classification.
+
+Comments for author
+-------------------
+The paper is well-written and the results are quite convincing to the reviewer.
+
+Human/animal subject approval
+-----------------------------
+2. Not needed or approval is mentioned in the paper.
+
+Overall merit
+-------------
+4. Accept
+
+
+
+Comment
+---------------------------------------------------------------------------
+The paper was discussed at the TPC meeting. There was concern that the paper does not discuss potential applications, which would strengthen the paper. Please work with the Shepherd to provide more information and final approval.

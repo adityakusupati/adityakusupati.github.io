@@ -1,0 +1,50 @@
+BuildSys'19 Posters & Demos Paper #20 Reviews and Comments
+===========================================================================
+Paper #20 Demo Abstract: Lightweight, Deep RNNs for Radar Classification
+
+
+Review #20A
+===========================================================================
+
+Overall merit
+-------------
+4. Accept
+
+Reviewer expertise
+------------------
+3. Knowledgeable
+
+Paper summary
+-------------
+This demo proposes using MSC-RNN for embedded pulsed doppler radar to identify objects from the radar data stream.
+
+Comments for author
+-------------------
++ Nice to see this emphasizing low power operation.
++ Promising results even on an embedded platform.
+
+- Not many evaluation scenario details.
+
+This seems like it would make for an interesting demo at the conference.
+
+
+
+Review #20B
+===========================================================================
+
+Overall merit
+-------------
+3. Weak accept
+
+Reviewer expertise
+------------------
+3. Knowledgeable
+
+Paper summary
+-------------
+This paper proposes demonstration of MSC-RNN to perform object identification using pulsed doppler radar.
+
+Comments for author
+-------------------
++ Novel contribution that utilizes MSC-RNN and an implementation with pulsed doppler radar.  
+- It would be nice to describe more evaluation scenarios.
