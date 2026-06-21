@@ -44,6 +44,159 @@
      font-size: 38px;
      font-weight: 400
   }
+  .sneaky-dropdown details {
+     display: inline-block;
+     position: relative;
+     background: #ffffff;
+      color: transparent !important;
+     border: 1px solid #ffffff;
+     padding: 0;
+     margin-top: 10px;
+     font-size: 10px;
+     border-radius: 0;
+  }
+  .sneaky-dropdown summary {
+      list-style: none;
+      cursor: pointer;
+      color: #ffffff;
+      outline: none;
+      user-select: none;
+      padding: 0;
+      margin: 0;
+      font-size: 10px;
+      line-height: 1;
+      text-decoration: none;
+      letter-spacing: -0.03em;
+  }
+  .sneaky-dropdown summary:hover,
+  .sneaky-dropdown summary:focus {
+     color: #ffffff;
+     outline: none;
+  }
+  .sneaky-dropdown summary::-webkit-details-marker {
+     display: none;
+  }
+    /* Stronger marker hiding and neutralizing default appearance */
+    .sneaky-dropdown details summary,
+    .sneaky-dropdown summary {
+     -webkit-appearance: none !important;
+     appearance: none !important;
+     background: transparent !important;
+     background-image: none !important;
+     border: 0 !important;
+     color: transparent !important;
+     width: 14px !important;
+     height: 14px !important;
+     display: inline-block !important;
+     overflow: hidden !important;
+     padding: 0 !important;
+     margin: 0 !important;
+    }
+    .sneaky-dropdown summary::before,
+    .sneaky-dropdown summary::after,
+    .sneaky-dropdown summary::marker {
+     content: none !important;
+     display: none !important;
+    }
+    .sneaky-dropdown details::-webkit-details-marker { display: none !important; }
+    .sneaky-dropdown summary::-moz-list-bullet { display: none !important; }
+  /* Hide disclosure markers across browsers */
+  .sneaky-dropdown summary {
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: none;
+    background: transparent;
+  }
+  .sneaky-dropdown summary::marker,
+  .sneaky-dropdown summary::-moz-list-bullet {
+    color: transparent;
+    font-size: 0;
+  }
+  .sneaky-dropdown details::-webkit-details-marker {
+    display: none;
+  }
+  /* Ensure marker is hidden across browsers and the invisible toggle receives clicks */
+  .sneaky-dropdown summary {
+    list-style: none !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    background: transparent !important;
+    border: 0 !important;
+    color: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 14px !important;
+    height: 14px !important;
+    display: inline-block !important;
+    overflow: hidden !important;
+  }
+  .sneaky-dropdown summary::-webkit-details-marker { display:none !important; }
+  .sneaky-dropdown summary::marker { content: "" !important; display:none !important; }
+  .sneaky-dropdown summary.invisible-toggle {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 18px;
+      height: 18px;
+      padding: 0;
+      margin: 0;
+      opacity: 0;
+      border: 0;
+      background: transparent;
+      color: transparent;
+      overflow: hidden;
+      z-index: 5;
+      pointer-events: auto;
+  }
+  /* Strong fallback to prevent any inherited color from showing the marker */
+  .sneaky-dropdown details,
+  .sneaky-dropdown summary,
+  .sneaky-dropdown details * {
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+  }
+  .sneaky-dropdown summary::marker,
+  .sneaky-dropdown summary::-webkit-details-marker,
+  .sneaky-dropdown summary::-moz-list-bullet {
+    color: transparent !important;
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    content: none !important;
+  }
+    /* Invisible but clickable toggle */
+    .sneaky-dropdown summary.invisible-toggle {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 14px;
+      height: 14px;
+      padding: 0;
+      margin: 0;
+      opacity: 0;
+      border: 0;
+      background: transparent;
+      color: transparent;
+      overflow: hidden;
+    }
+  .sneaky-dropdown ul {
+     display: none;
+     position: absolute;
+     left: 0;
+     top: 100%;
+     margin: 4px 0 0;
+     padding: 8px 12px;
+     background: #ffffff;
+     color: #000000;
+     border: 1px solid #dddddd;
+     border-radius: 5px;
+     box-shadow: 0 3px 9px rgba(0,0,0,0.08);
+     white-space: nowrap;
+     z-index: 10;
+  }
+  .sneaky-dropdown[open] ul {
+     display: block;
+  }
   </style>
   <!-- <link rel="icon" type="image/png" href="images/W.png"> -->
   <script type="text/javascript" src="js/hidebib.js"></script>
@@ -108,13 +261,36 @@
 
      <p>I am a Researcher at Google DeepMind.</p>
        
-     <p>My research interests lie in fundamental and practical machine learning working towards adaptive intelligence, but my day-to-day nearly rivals the randomness marked by cosmic rays. I am infamous for popularizing &#x1fa86; in the ML community and the tech (Matryoshka Learning) it represents touches ~3 Billion users daily across most of the industry and powers millions of open model downloads.</p>
+     <p>My research interests lie in fundamental and practical machine learning working towards adaptive intelligence -- currently working on <b>continual learning</b> -- but my day-to-day nearly rivals the randomness marked by cosmic rays.</p> 
+      
+      <!-- I am infamous for popularizing &#x1fa86; in the ML community and the tech (Matryoshka Learning) it represents touches ~3 Billion users daily across most of the industry and powers millions of open model downloads. -->
        
        <!-- -- <font size="-1"><i>some of the algorithms (might) have serendipitously found their way into Google, OpenAI, Apple, Pinterest, Microsoft and Amazon products with massive impact</i></font>.</p>  -->
      
-     <p>I got my PhD from the University of Washington jointly advised by <a href="https://homes.cs.washington.edu/~ali/" target="_blank">Ali Farhadi</a> and <a href="https://sham.seas.harvard.edu/" target="_blank">Sham Kakade</a>. During my PhD, I also worked closely with <a href="http://www.prateekjain.org/" target="_blank">Prateek Jain</a> and <a href="https://research.google/people/RahulSukthankar/" target="_blank">Rahul Sukthankar</a> at Google Research &rarr; DeepMind as a Student Researcher. Before joining PhD, I spent two amazing years as a Research Fellow at Microsoft Research India with <a href="http://manikvarma.org/" target="_blank">Manik Varma</a> and <a href="http://www.prateekjain.org/" target="_blank">Prateek Jain</a>. In a past life, I earned a Bachelor's in CS with Honours and a Minor in EE from IIT Bombay where I had the pleasure of working with <a href="https://www.cse.iitb.ac.in/~soumen/" target="_blank">Soumen Chakrabarti</a>.</p>
+     <p>I got my PhD from the University of Washington jointly advised by <a href="https://homes.cs.washington.edu/~ali/" target="_blank">Ali Farhadi</a> and <a href="https://sham.seas.harvard.edu/" target="_blank">Sham Kakade</a> while closely working with <a href="http://www.prateekjain.org/" target="_blank">Prateek Jain</a> at Google Research &rarr; DeepMind as a Student Researcher. Before joining PhD, I spent two amazing years as a Research Fellow at Microsoft Research with <a href="http://manikvarma.org/" target="_blank">Manik Varma</a> and <a href="http://www.prateekjain.org/" target="_blank">Prateek Jain</a>. In a past life, I earned a Bachelor's in CS with Honours and a Minor in EE from IIT Bombay where I worked with <a href="https://www.cse.iitb.ac.in/~soumen/" target="_blank">Soumen Chakrabarti</a>.</p>
 
-     <p>You can find my relatively updated <a href="docs/AdityaKusupati_Research_CV.pdf" target="_blank">CV here</a>; my research papers on <a href="https://scholar.google.co.in/citations?user=qULx8g8AAAAJ&hl=en" target="_blank">Google Scholar</a> with most of them having codebases linked in the manuscript. Feel free to email me if you can't find something you are looking for.</p>
+     <p>
+       <span class="sneaky-dropdown">
+         <details>
+          <summary class="invisible-toggle" aria-label="Research Breakthroughs"></summary>
+           <ul>
+             <li>2018: Early deep learning models to work in < 16KB memory & on-device wakeword detection.</li>
+             <li>2020: End-to-end differentiable/learnable sparsity.</li>
+             <li>2021: End-to-end discrete bit-code learning &rarr; differentiable search &rarr; pre-cursor to Semantic Ids & Generative Retreival.</li>
+             <li>2022-26: Matryoshka learning paradigm for adapative intelligence.
+              <ul>
+                <li>2022: Matryoshka Representation Learning (MRL) -- powering most deployed search systems.</li>
+                <li>2023: Matryoshka Transformer (MatFormer) -- powering widely deployed large transformer models.</li>
+                <li>2024-26: Matryoshka Quantization (MatQuant), adaptive tokenizers, better SAEs and 3D representations leveraging matryoshka learning.</li>
+              </ul>
+             </li>
+             <li>2024: Fundamentals of latent thinking through superposed decoding -- few months before thinking models and coconut paper.</li>
+           </ul>
+         </details>
+       </span>
+     </p>
+
+     <!-- <p>You can find my relatively updated <a href="docs/AdityaKusupati_Research_CV.pdf" target="_blank">CV here</a>; my research papers on <a href="https://scholar.google.co.in/citations?user=qULx8g8AAAAJ&hl=en" target="_blank">Google Scholar</a> with most of them having codebases linked in the manuscript. Feel free to email me if you can't find something you are looking for.</p> -->
 
 <!--      <p><b>I am on the job market for faculty and industry positions during 2023-24 cycle!</b> Feel free to reach out if you think I might be a fit.</p> -->
 
